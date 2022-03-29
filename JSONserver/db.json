@@ -1,0 +1,66 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "name": "Bobby",
+      "lastname": "McFersen",
+      "weight": "150 KG",
+      "face": "perso1.png",
+      "turnleft": "leftbody.gif",
+      "turnright": "rightbody.gif"
+    },
+    {
+      "id": 2,
+      "name": "Jean-Michel",
+      "lastname": "Cerisier",
+      "weight": "98 KG",
+      "face": "perso1.png",
+      "turnleft": "leftbody.gif",
+      "turnright": "rightbody.gif"
+    },
+    {
+      "name": "José",
+      "lastname": "Bové",
+      "weight": "123kg",
+      "face": "perso1.png",
+      "id": 4,
+      "turnleft": "leftbody.gif",
+      "turnright": "rightbody.gif"
+    },
+    {
+      "name": "Louis",
+      "lastname": "LaBroquante",
+      "weight": "98 KG",
+      "face": "perso1.png",
+      "id": 5,
+      "turnleft": "leftbody.gif",
+      "turnright": "rightbody.gif"
+    },
+    {
+      "name": "Laetitia",
+      "lastname": "Barone",
+      "weight": "52 KG",
+      "face": "perso1.png",
+      "id": 6,
+      "turnleft": "leftbody.gif",
+      "turnright": "rightbody.gif"
+    },
+    {
+      "name": "Benoit",
+      "lastname": "Brunel",
+      "weight": "75 KG",
+      "face": "perso1.png",
+      "turnleft": "leftbody.gif",
+      "id": 7
+    }
+  ],
+  "capacities": [
+    {
+      "attack1": "uppercut",
+      "attack2": "mawashigeri",
+      "attack3": "german-souplex",
+      "attack4": "fulguro-punch",
+      "attack5": "salsa-dance"
+    }
+  ]
+}

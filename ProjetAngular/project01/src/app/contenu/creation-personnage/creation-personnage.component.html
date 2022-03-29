@@ -1,0 +1,20 @@
+<div id="leformulaire">
+<form [formGroup]="formgroup" (ngSubmit)="submit()">
+    
+   <div>
+       <label for="name">Name : </label>
+       <input type="text" id="Name" formControlName="name">
+   </div>
+   <div>
+        <label for="name">LastName : </label>
+        <input type="text" id="LastName" formControlName="lastname">
+   </div>
+   <div>
+        <label for="name">Weight : </label>
+        <input type="text" id="Weight" formControlName="weight">
+   </div>
+   <div>
+       <input type="submit" value="Create">
+   </div>
+</form>
+</div>
