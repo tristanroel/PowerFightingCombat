@@ -9,7 +9,10 @@ import { Observable } from 'rxjs';
 export class PersoService {
 
  private _urlUser : string = "http://localhost:3000/user/";
- private _urlCapacities : string = "http://localhost:3000/capacities"
+ private _urlCapacities : string = "http://localhost:3000/capacities";
+
+ public character? : Iperso;
+ public characters : Iperso[] = []
 
   constructor(private _httpclient : HttpClient) { }
 
@@ -23,8 +26,8 @@ export class PersoService {
 
   }
 
-  public getOne(id : number) : Observable<Iperso>{
-    return this._httpclient.get<Iperso>(this._urlUser + id) 
+  public getOne(id : number){
+    return this._httpclient.get<Iperso>(this._urlUser + id)
   }
 
   public post(perso : Iperso){
@@ -34,6 +37,10 @@ export class PersoService {
   public delete(id : number) {
     return this._httpclient.delete<Iperso>(this._urlUser + id)
     // return this.getAll();
+  }
 
+  public edit(id : number, perso : Iperso){
+    let object = {name : "axel"}
+    return this._httpclient.put<Iperso>(this._urlUser + 1, JSON.stringify(object))
   }
 }

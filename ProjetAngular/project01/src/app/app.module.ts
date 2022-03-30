@@ -9,6 +9,7 @@ import { CreationPersonnageComponent } from './contenu/creation-personnage/creat
 import { NavigationComponent } from './contenu/navigation/navigation.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FightAreaComponent } from './contenu/fight-area/fight-area.component';
+import { EditPersonnageComponent } from './contenu/edit-personnage/edit-personnage.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { FightAreaComponent } from './contenu/fight-area/fight-area.component';
     CreationPersonnageComponent,
     NavigationComponent,
     FightAreaComponent,
+    EditPersonnageComponent,
     
   ],
   imports: [

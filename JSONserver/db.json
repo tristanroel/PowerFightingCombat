@@ -10,33 +10,6 @@
       "turnright": "rightbody.gif"
     },
     {
-      "id": 2,
-      "name": "Jean-Michel",
-      "lastname": "Cerisier",
-      "weight": "98 KG",
-      "face": "perso1.png",
-      "turnleft": "leftbody.gif",
-      "turnright": "rightbody.gif"
-    },
-    {
-      "name": "José",
-      "lastname": "Bové",
-      "weight": "123kg",
-      "face": "perso1.png",
-      "id": 4,
-      "turnleft": "leftbody.gif",
-      "turnright": "rightbody.gif"
-    },
-    {
-      "name": "Louis",
-      "lastname": "LaBroquante",
-      "weight": "98 KG",
-      "face": "perso1.png",
-      "id": 5,
-      "turnleft": "leftbody.gif",
-      "turnright": "rightbody.gif"
-    },
-    {
       "name": "Laetitia",
       "lastname": "Barone",
       "weight": "52 KG",
@@ -52,6 +25,57 @@
       "face": "perso1.png",
       "turnleft": "leftbody.gif",
       "id": 7
+    },
+    {
+      "name": "Tristan",
+      "lastname": "Roel",
+      "weight": "65 KG",
+      "face": "perso1.png",
+      "turnleft": "leftbody.gif",
+      "id": 8
+    },
+    {
+      "name": "John",
+      "lastname": "Turner",
+      "weight": "96 KG",
+      "face": "perso1.png",
+      "turnleft": "leftbody.gif",
+      "id": 9
+    },
+    {
+      "name": "Jason",
+      "lastname": "Statham",
+      "weight": "85 KG",
+      "face": "perso1.png",
+      "turnleft": "leftbody.gif",
+      "id": 10
+    },
+    {
+      "name": "jojo",
+      "lastname": "jiji",
+      "weight": "jaja",
+      "face": "perso1.png",
+      "turnleft": "leftbody.gif",
+      "turnright": "rightbody.gif",
+      "id": 13
+    },
+    {
+      "name": "klkkj",
+      "lastname": "bfdkfd",
+      "weight": "fkbfkhbfd",
+      "face": "perso1.png",
+      "turnleft": "leftbody.gif",
+      "turnright": "rightbody.gif",
+      "id": 14
+    },
+    {
+      "name": "klkkj",
+      "lastname": "bfdkfd",
+      "weight": "fkbfkhbfd",
+      "face": "perso1.png",
+      "turnleft": "leftbody.gif",
+      "turnright": "rightbody.gif",
+      "id": 15
     }
   ],
   "capacities": [

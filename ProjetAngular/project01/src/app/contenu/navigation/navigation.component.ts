@@ -11,7 +11,7 @@ export class NavigationComponent implements OnInit {
 
   public menu : Link[] = [
     new Link("create", "contenu/creation-personnage"),
-    new Link("select", "contenu/personnage")
+    new Link("select", "contenu/personnage"),
   ];
 
   constructor() { }

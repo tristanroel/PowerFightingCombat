@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Righteous&display=swap');
 
 #leformulaire{
     display: flex;
@@ -9,6 +10,15 @@ form{
     text-align: center;
     padding: 10px;
     
+}
+
+input{
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Righteous', cursive;
+}
+label{
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Righteous', cursive;
 }
 
 input[type=text], select{
