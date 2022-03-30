@@ -10,6 +10,7 @@ import { NavigationComponent } from './contenu/navigation/navigation.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FightAreaComponent } from './contenu/fight-area/fight-area.component';
 import { EditPersonnageComponent } from './contenu/edit-personnage/edit-personnage.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { EditPersonnageComponent } from './contenu/edit-personnage/edit-personna
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule

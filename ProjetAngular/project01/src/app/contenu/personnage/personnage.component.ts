@@ -4,10 +4,11 @@ import { Router } from '@angular/router';
 import { Iperso } from 'src/app/interfaces/iperso';
 import { PersoService } from 'src/app/services/perso.service';
 import { RoutingParamsService } from 'src/app/services/routing-params.service';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-personnage',
-  
+  animations: [],
   styleUrls: ['./personnage.component.scss'],
   template: `
   
@@ -39,7 +40,7 @@ import { RoutingParamsService } from 'src/app/services/routing-params.service';
         <div>
           {{character?.weight}}
         </div>
-        <div>
+        <div id="anim">
           <img class="fighter"[src]="'assets/'+ character?.turnleft" width="200" height="200" >
         </div>
         <div class="center">
@@ -73,7 +74,7 @@ export class PersonnageComponent implements OnInit {
   getOneCharacter(id : number){
     
      console.log(this.persos.find(perso=>perso.id == id ));
-     this.character = this.persos.find(perso=>perso.id == id)
+     this.character = this.persos.find(perso=>perso.id == id);
     
   }
 

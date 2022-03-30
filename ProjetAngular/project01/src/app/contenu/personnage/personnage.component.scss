@@ -47,3 +47,14 @@
 .fighter{
     image-rendering: pixelated;
 }
+
+#anim{
+    position: relative;
+    animation-name: lesgo;
+    animation-duration: 2s;
+}
+
+@keyframes lesgo{
+    0% {left: 200px; top: 0px;}
+    100% {left : 0px; top: 0px;}
+}
