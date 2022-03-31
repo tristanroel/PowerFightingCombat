@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Iperso } from '../interfaces/iperso';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,9 @@ export class PersoService {
  private _urlCapacities : string = "http://localhost:3000/capacities";
 
  public character? : Iperso;
- public characters : Iperso[] = []
-
+ public characters : Iperso[] = [];
+ public enemyId : number = 0;
+ 
   constructor(private _httpclient : HttpClient) { }
 
   // public get(id : number) : Iperso{
@@ -28,6 +30,7 @@ export class PersoService {
 
   public getOne(id : number){
     return this._httpclient.get<Iperso>(this._urlUser + id)
+    .pipe(catchError((err) => {return throwError(err)}))
   }
 
   public post(perso : Iperso){
@@ -40,7 +43,17 @@ export class PersoService {
   }
 
   public edit(id : number, perso : Iperso){
-    let object = {name : "axel"}
-    return this._httpclient.put<Iperso>(this._urlUser + 1, JSON.stringify(object))
+    // let object = {name : "axel"}
+      return this._httpclient.put<Iperso>(this._urlUser + id, perso)
+      // .pipe(
+      //   catchError(this.han)
+      // )
+  }
+  public getOpponent(id : number){
+   id++
+   //console.log(id);
+    return this._httpclient.get<Iperso>(this._urlUser + id)
+    .pipe(catchError((err) => {return throwError(err)}))
+    
   }
 }

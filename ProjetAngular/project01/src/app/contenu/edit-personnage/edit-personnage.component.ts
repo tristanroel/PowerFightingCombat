@@ -9,16 +9,40 @@ import { PersoService } from 'src/app/services/perso.service';
   styleUrls: ['./edit-personnage.component.scss'],
   template: `
 
-  <p>{{fighter | json}}</p>
-
+  <!-- <p>{{fighter | json}}</p> -->
+<div id="container">  
+  <div class="formulaire">
     <form [formGroup]="_formgroup" (submit)="submit()">
+      <div class="section">
+        <h3>Edit Your Fighter !</h3>
+      </div>
+      <div class="section">
+        <label>FirstName :</label>
+      </div>
+      <div class="section">
         <input type="text" formControlName="name">
+      </div>
+      <div class="section">
+        <label>LastName :</label>
+      </div>
+      <div class="section">
         <input type="text" formControlName="lastname">
+      </div>
+      <div class="section">
+        <label>Weight :</label>
+      </div>
+      <div>
         <input type="text" formControlName="weight">
-        <button type="submit" [disabled]="!_formgroup.valid">SUBMIT</button>
+      </div>
+      <div class="section">
+        <button type="submit" [disabled]="!_formgroup.valid">EDIT</button>
+      </div>
     </form>
-
-  
+  </div>
+  <div id="img">
+    <img class="fighter"[src]="'assets/'+ fighter.frontattack" width="300" height="300" >
+  </div>
+</div> 
   
   `
 })
@@ -54,6 +78,9 @@ export class EditPersonnageComponent implements OnInit {
         this.fighter = data
         //console.log(data);
       },
+      error: (err) => {
+        console.log("flûte")
+      },
       complete : ()=>{
         this.setValueInFormgroup();
       }
@@ -77,8 +104,19 @@ export class EditPersonnageComponent implements OnInit {
       id : this.fighter.id,
       turnleft : this.fighter.turnleft,
       turnright : this.fighter.turnright,
+      backattack : this.fighter.backattack,
+      frontattack : this.fighter.frontattack
     }
-    this._persoservice.edit(this.fighterId, this.fighterform)
+    this._persoservice.edit(this.fighterId, this.fighterform).subscribe({
+      next : (data)=>{
+        this.fighterform = data
+      },
+      // error : (err) =>{
+      //   console.log(err);
+        
+      // }
+      
+    })
 
     console.log(this.fighterform);
     

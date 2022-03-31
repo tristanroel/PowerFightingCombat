@@ -5,6 +5,7 @@ import { Iperso } from 'src/app/interfaces/iperso';
 import { PersoService } from 'src/app/services/perso.service';
 import { RoutingParamsService } from 'src/app/services/routing-params.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-personnage',
@@ -25,7 +26,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
           <div>
             <input class="button" type="button" value="DELETE"(click)="deleteCharacter(item.id)">
             <!-- <a routerLink="contenu/edit-personnage"><button class="button">EDIT</button></a> -->
-            <input class="button" type="button" value="EDIT" (click)="goEdit()">
+            <input class="button" type="button" value="EDIT" (click)="goEdit(item.id)">
           </div>
         </div>  
     </div>
@@ -55,17 +56,22 @@ export class PersonnageComponent implements OnInit {
   persos : Iperso[] = [];
   public character? : Iperso;
 
+  private getAllService! : Subscription;
+
 
   constructor(private _persoservices : PersoService,
               private _router : Router,
               private _routinparamservice : RoutingParamsService) {}
 
   ngOnInit(): void {
-    this._persoservices.getAll().subscribe({
+    this.getAllService = this._persoservices.getAll().subscribe({
       next : (letype)=>
       {
         this.persos = letype
         console.log(letype);
+      },
+      complete : ()=>{
+        this.getAllService.unsubscribe();  // desouscris et permet de liberer de la memoire
       }
     })
     console.log(this.character)
@@ -93,10 +99,10 @@ export class PersonnageComponent implements OnInit {
       this._routinparamservice.paramsUrlAssociate(route, chaine);
     //this._router.navigate(["contenu/fight-area"], {queryParams: {fighterName : this.character?.name }} );
   }
-  goEdit(){
+  goEdit(id : number){
     let route ="contenu/edit-personnage";
-    let chaine = this.character?.id
-      this._routinparamservice.paramsUrlAssociate(route, chaine);
+    //let chaine = this.character?.id
+      this._routinparamservice.paramsUrlAssociate(route, id);
   }
     
 

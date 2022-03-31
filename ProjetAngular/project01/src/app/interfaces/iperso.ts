@@ -6,5 +6,7 @@ export interface Iperso {
     face : string;
     turnleft : string;
     turnright : string;
+    backattack : string;
+    frontattack : string;
     
 }
