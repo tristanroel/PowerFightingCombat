@@ -20,6 +20,7 @@ export class CreationPersonnageComponent implements OnInit {
       name : [null,[Validators.required]],
       lastname : [null,[Validators.required]],
       weight : [null, [Validators.required]],
+      pv : [100],
       face : ["perso1.png"],
       turnleft : ["leftbody.gif"],
       turnright : ["rightbody.gif"],

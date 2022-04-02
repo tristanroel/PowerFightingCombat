@@ -40,7 +40,7 @@ import { PersoService } from 'src/app/services/perso.service';
     </form>
   </div>
   <div id="img">
-    <img class="fighter"[src]="'assets/'+ fighter.frontattack" width="300" height="300" >
+    <img class="fighter"[src]="'assets/'+ fighter?.frontattack" width="300" height="300" >
   </div>
 </div> 
   
@@ -102,6 +102,7 @@ export class EditPersonnageComponent implements OnInit {
       weight : this._formgroup.value.weight,
       face : this.fighter.face,
       id : this.fighter.id,
+      pv : this.fighter.pv,
       turnleft : this.fighter.turnleft,
       turnright : this.fighter.turnright,
       backattack : this.fighter.backattack,

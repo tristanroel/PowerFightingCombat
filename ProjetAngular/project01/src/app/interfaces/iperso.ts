@@ -4,6 +4,8 @@ export interface Iperso {
     lastname : string;
     weight : string;
     face : string;
+    pv : number;
+
     turnleft : string;
     turnright : string;
     backattack : string;

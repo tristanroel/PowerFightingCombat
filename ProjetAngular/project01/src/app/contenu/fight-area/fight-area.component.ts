@@ -71,6 +71,8 @@ export class FightAreaComponent implements OnInit {
   switchText(){
     let response = this.fightingText[this.cpt]
     console.log(response);
+    console.log(this.cpt);
+    
     this.cpt++
   }
 

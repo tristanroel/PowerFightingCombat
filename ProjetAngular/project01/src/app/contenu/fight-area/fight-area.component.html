@@ -1,24 +1,51 @@
-
+<div id="background">
+<div id="info">
+    <div class="details">
+        <ul>
+            <li>{{fighter?.name}}</li>
+            <li>{{fighter?.pv}} PV</li>
+        </ul>
+    </div>
+    <div class="details">
+        <ul>
+            <li>{{enemy?.name}}</li>
+            <li>{{enemy?.pv}} PV</li>
+        </ul>
+    </div>
+</div>
 <div id="container">
     <div id="scene">
-        <div class="fghtr">
-            <div *ngIf="fighter">
-                <img class="fighter"[src]="'assets/'+ fighter.turnright" width="600" height="300" >
-                <div>{{fighter.name}}</div>
-            </div>           
-            <!-- <div>
-                {{fighter.name}}
-            </div> -->
-        </div>
-        <div class="enmy">
-            <div *ngIf="enemy">
-                <img class="enemy"[src]="'assets/'+ enemy.turnleft" width="500" height="500" >
-                <div>{{enemy.name}}</div>
+        <div id="area">
+            <div class="fghtr">
+                <div *ngIf="fighter">
+                    <img class="fighter"[src]="'assets/'+ fighter.turnright" width="500" height="300" >
+                </div>           
+                <!-- <div>
+                    {{fighter.name}}
+                </div> -->
+            </div>
+            <div class="enmy">
+                <div *ngIf="enemy">
+                    <img class="enemy"[src]="'assets/'+ enemy.turnleft" width="500" height="500" >
+                </div>
             </div>
         </div>
     </div>
     <div id="text-box" *ngIf="fighter">
-        <p>{{fightingText[cpt]}}</p> 
-        <input type="button" value="continue" (click)="switchText()">   
+        <p id="actiontext">{{fightingText[cpt]}}</p>
+        <input id="actionbtn"type="button" value="continue" (click)="switchText()"> 
+        <div id="actionContext" *ngIf="cpt == 2">
+            <div class="attacklist">
+                <div>blabla</div>
+                <div>blabla</div>
+                <div>blabla</div>
+                <div>blabla</div>
+            </div>  
+            <div><input class="fightbtn" type="button" value="Attack"></div>
+            <div><input class="fightbtn" type="button" value="Defense"></div>
+            <div><input class="fightbtn" type="button" value="Objet"></div>
+        </div> 
     </div>
 </div>
+</div>
+<div id="caca"></div>
