@@ -10,7 +10,7 @@ import { catchError } from 'rxjs/operators';
 export class PersoService {
 
  private _urlUser : string = "http://localhost:3000/user/";
- private _urlCapacities : string = "http://localhost:3000/capacities";
+//  private _urlCapacities : string = "http://localhost:3000/capacities";
 
  public character? : Iperso;
  public characters : Iperso[] = [];
@@ -54,6 +54,9 @@ export class PersoService {
    //console.log(id);
     return this._httpclient.get<Iperso>(this._urlUser + id)
     .pipe(catchError((err) => {return throwError(err)}))
+  }
+
+  public getAttackNumber(){
     
   }
 }

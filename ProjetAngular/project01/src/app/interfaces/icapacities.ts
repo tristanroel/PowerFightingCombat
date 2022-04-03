@@ -1,3 +1,7 @@
 export interface Icapacities {
-    attack : string;
+    id : number;
+    level : number;
+    name : string;
+    damage : number;
+    description : string;
 }

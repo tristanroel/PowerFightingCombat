@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Icapacities } from 'src/app/interfaces/icapacities';
 import { Iperso } from 'src/app/interfaces/iperso';
+import { CapacitiesService } from 'src/app/services/capacities.service';
 import { PersoService } from 'src/app/services/perso.service';
 
 @Component({
@@ -31,16 +33,34 @@ import { PersoService } from 'src/app/services/perso.service';
       <div class="section">
         <label>Weight :</label>
       </div>
-      <div>
+      <div class="section">
         <input type="text" formControlName="weight">
       </div>
+
+      <div class="section">
+        <label>Attaque 1 : </label>
+      <!-- </div>
+      <div class="section"> -->
+        <!-- <select name="attack1" formControlName="attack1">
+            <option *ngFor="let item of attacklist" (click)="getOneAttack()">{{item.name}}   
+        </select> -->
+        <input type="number" formControlName="attack1" >
+        <div></div>
+      </div>
+
       <div class="section">
         <button type="submit" [disabled]="!_formgroup.valid">EDIT</button>
       </div>
     </form>
   </div>
-  <div id="img">
-    <img class="fighter"[src]="'assets/'+ fighter?.frontattack" width="300" height="300" >
+  <div>
+    <div id="stats">
+      <div style="margin-left: 10px;">Level : {{fighter?.level}}</div>
+      <div style="margin-left: 10px">Xp : {{fighter?.xp}}</div>
+    </div>
+    <div id="img">
+      <img class="fighter"[src]="'assets/'+ fighter?.frontattack" width="300" height="300" >
+    </div>
   </div>
 </div> 
   
@@ -52,12 +72,17 @@ export class EditPersonnageComponent implements OnInit {
   public fighter! : Iperso;
   public fighterform! : Iperso;
 
+  public attacklist : Icapacities[] = [];
+  public attackId! : number;
+  public attack! : Icapacities;
+
   public _formgroup! : FormGroup
 
   //! => ne s'initialise pas direct, mais s'initialiseras par la suite
   //? => peut soit avoir la valeur assignée soit undefined
   constructor(private _route : ActivatedRoute,
               private _persoservice : PersoService,
+              private _capacitiesservice : CapacitiesService,
               private _formbuilder : FormBuilder) { }
 
   ngOnInit(): void {
@@ -65,7 +90,11 @@ export class EditPersonnageComponent implements OnInit {
     this._formgroup = this._formbuilder.group({
       name : [null], //les validateurs seront set dans le queryNewPkm en fonction de la taille du nom.
       lastname : [null],
-      weight : [null]
+      weight : [null],
+      attack1 : [1],
+      attack2 : [1],
+      attack3 : [1],
+      attack4 : [1],
     })    
 
     this._route.queryParams.subscribe(params=>{
@@ -84,7 +113,15 @@ export class EditPersonnageComponent implements OnInit {
       complete : ()=>{
         this.setValueInFormgroup();
       }
-    })  
+    })
+    ///////////////////////////////////////////
+    this._capacitiesservice.getAllCapacities().subscribe({
+      next : (data)=>{
+        this.attacklist = data;
+        console.log(data);
+      }
+    })
+    
   }
 
   setValueInFormgroup(){
@@ -106,7 +143,13 @@ export class EditPersonnageComponent implements OnInit {
       turnleft : this.fighter.turnleft,
       turnright : this.fighter.turnright,
       backattack : this.fighter.backattack,
-      frontattack : this.fighter.frontattack
+      frontattack : this.fighter.frontattack,
+      level : this.fighter.level,
+      xp : this.fighter.xp,
+      attack1 : this._formgroup.value.attack1,
+      attack2 : this.fighter.attack2,
+      attack3 : this.fighter.attack3,
+      attack4 : this.fighter.attack4
     }
     this._persoservice.edit(this.fighterId, this.fighterform).subscribe({
       next : (data)=>{
@@ -120,6 +163,14 @@ export class EditPersonnageComponent implements OnInit {
     })
 
     console.log(this.fighterform);
-    
+  }
+  getOneAttack(){
+    this._capacitiesservice.getAttack(this.attackId).subscribe({
+      next : (data)=>{
+        this.attack = data
+        console.log(data.id);
+        
+      }
+    })
   }
 }

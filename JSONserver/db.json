@@ -7,22 +7,34 @@
       "face": "perso1.png",
       "id": 15,
       "pv": 100,
+      "level": 1,
+      "xp": 0,
       "turnleft": "leftbody.gif",
       "turnright": "rightbody.gif",
       "backattack": "Attack-back.gif",
-      "frontattack": "Attack-front.gif"
+      "frontattack": "Attack-front.gif",
+      "attack1":1,
+      "attack2":2,
+      "attack3":3,
+      "attack4":4
     },
     {
       "name": "Laetitia",
       "lastname": "Barone",
       "weight": "52 KG",
       "pv": 100,
+      "level": 1,
+      "xp": 0,
       "face": "perso1.png",
       "turnleft": "leftbody.gif",
       "turnright": "rightbody.gif",
       "frontattack": "Attack-front.gif",
       "backattack": "Attack-back.gif",
-      "id": 16
+      "id": 16,
+      "attack1":1,
+      "attack2":2,
+      "attack3":3,
+      "attack4":4
     },
     {
       "name": "Axel",
@@ -31,10 +43,16 @@
       "face": "perso1.png",
       "id": 17,
       "pv": 100,
+      "level": 1,
+      "xp": 0,
       "turnleft": "leftbody.gif",
       "turnright": "rightbody.gif",
       "backattack": "Attack-back.gif",
-      "frontattack": "Attack-front.gif"
+      "frontattack": "Attack-front.gif",
+      "attack1":1,
+      "attack2":2,
+      "attack3":3,
+      "attack4":4
     },
     {
       "name": "Tristan",
@@ -42,11 +60,17 @@
       "weight": "65 KG",
       "face": "perso1.png",
       "pv": 100,
+      "level": 1,
+      "xp": 0,
       "turnleft": "leftbody.gif",
       "turnright": "rightbody.gif",
       "frontattack": "Attack-front.gif",
       "backattack": "Attack-back.gif",
-      "id": 18
+      "id": 18,
+      "attack1":1,
+      "attack2":2,
+      "attack3":3,
+      "attack4":4
     },
     {
       "name": "Alex",
@@ -54,11 +78,17 @@
       "weight": "110 KG",
       "face": "perso1.png",
       "pv": 100,
+      "level": 1,
+      "xp": 0,
       "turnleft": "leftbody.gif",
       "turnright": "rightbody.gif",
       "frontattack": "Attack-front.gif",
       "backattack": "Attack-back.gif",
-      "id": 19
+      "id": 19,
+      "attack1":1,
+      "attack2":2,
+      "attack3":3,
+      "attack4":4
     },
     {
       "name": "Gaetan",
@@ -66,11 +96,17 @@
       "weight": "95 KG",
       "face": "perso1.png",
       "pv": 100,
+      "level": 1,
+      "xp": 0,
       "turnleft": "leftbody.gif",
       "turnright": "rightbody.gif",
       "frontattack": "Attack-front.gif",
       "backattack": "Attack-back.gif",
-      "id": 20
+      "id": 20,
+      "attack1":1,
+      "attack2":2,
+      "attack3":3,
+      "attack4":4
     },
     {
       "name": "Simon",
@@ -78,11 +114,17 @@
       "weight": "78 KG",
       "face": "perso1.png",
       "pv": 100,
+      "level": 1,
+      "xp": 0,
       "turnleft": "leftbody.gif",
       "turnright": "rightbody.gif",
       "frontattack": "Attack-front.gif",
       "backattack": "Attack-back.gif",
-      "id": 21
+      "id": 21,
+      "attack1":1,
+      "attack2":2,
+      "attack3":3,
+      "attack4":4
     },
     {
       "name": "Apdu",
@@ -90,11 +132,17 @@
       "weight": "85 KG",
       "face": "perso1.png",
       "pv": 100,
+      "level": 1,
+      "xp": 0,
       "turnleft": "leftbody.gif",
       "turnright": "rightbody.gif",
       "frontattack": "Attack-front.gif",
       "backattack": "Attack-back.gif",
-      "id": 22
+      "id": 22,
+      "attack1":1,
+      "attack2":2,
+      "attack3":3,
+      "attack4":4
     },
     {
       "name": "Aurelien",
@@ -102,11 +150,17 @@
       "weight": "73 KG",
       "face": "perso1.png",
       "pv": 100,
+      "level": 1,
+      "xp": 0,
       "turnleft": "leftbody.gif",
       "turnright": "rightbody.gif",
       "frontattack": "Attack-front.gif",
       "backattack": "Attack-back.gif",
-      "id": 24
+      "id": 24,
+      "attack1":1,
+      "attack2":2,
+      "attack3":3,
+      "attack4":4
     },
     {
       "name": "David",
@@ -114,11 +168,17 @@
       "weight": "150 KG",
       "face": "perso1.png",
       "pv": 100,
+      "level": 1,
+      "xp": 0,
       "turnleft": "leftbody.gif",
       "turnright": "rightbody.gif",
       "frontattack": "Attack-front.gif",
       "backattack": "Attack-back.gif",
-      "id": 25
+      "id": 25,
+      "attack1":1,
+      "attack2":2,
+      "attack3":3,
+      "attack4":4
     },
     {
       "name": "simon",
@@ -126,20 +186,55 @@
       "weight": "69 KG",
       "face": "perso1.png",
       "pv": 100,
+      "level": 1,
+      "xp": 0,
       "turnleft": "leftbody.gif",
       "turnright": "rightbody.gif",
       "frontattack": "Attack-front.gif",
       "backattack": "Attack-back.gif",
-      "id": 27
+      "id": 27,
+      "attack1":1,
+      "attack2":2,
+      "attack3":3,
+      "attack4":4
     }
   ],
   "capacities": [
-    {
-      "attack1": "uppercut",
-      "attack2": "mawashigeri",
-      "attack3": "german-souplex",
-      "attack4": "fulguro-punch",
-      "attack5": "salsa-dance"
-    }
+      {
+        "id": 1,
+        "level" : 1,
+        "name" :"uppercut",
+        "damage": 10,
+        "description": "un puissant coup de point délivré au menton le bras semi fléchi"
+      },
+      {
+        "id": 2,
+        "level" : 1,
+        "name" :"mawashi-geri",
+        "damage": 12,
+        "description": "coup de pied circulaire dévastateur"
+      },
+      {
+        "id": 3,
+        "level" : 1,
+        "name" :"german-souplex",
+        "damage": 20,
+        "description": "puissante prise de catch qui projete l'adversaire à terre"
+      },
+      {
+        "id": 3,
+        "level" : 1,
+        "name" :"fulguro-punch",
+        "damage": 30,
+        "description": "Prochette mecaniquement ses poing vers l'adversaire"
+      },
+      {
+        "id": 3,
+        "level" : 1,
+        "name" :"salsa-dance",
+        "damage": 35,
+        "description": "Dance sensuelle latine occasionant de lourd domage mental et par extension physique"
+      }
+    
   ]
 }
