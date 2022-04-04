@@ -1,12 +1,12 @@
 <div id="background">
 <div id="info">
-    <div class="details">
+    <div class="details" *ngIf="fighter">
         <div style="color: white;font-size: 11px;position: absolute;top: 167px;">
             lvl:{{fighter?.level}}</div>
         <div>{{fighter?.name}}</div>
         <div style="margin-top: 10px;">{{fighter?.pv}} PV</div>
     </div>
-    <div class="details">
+    <div class="details" *ngIf="enemy">
         <div style="color: white;font-size: 11px;position: absolute;top: 167px;">
             lvl:{{enemy?.level}}</div>
         <div>{{enemy?.name}}</div>
@@ -17,16 +17,13 @@
     <div id="scene">
         <div id="area">
             <div class="fghtr">
-                <div *ngIf="fighter">
-                    <img class="fighter"[src]="'assets/'+ fighter.turnright" width="500" height="300" >
-                </div>           
-                <!-- <div>
-                    {{fighter.name}}
-                </div> -->
+                <div>
+                    <img *ngIf="fighter" class="fighter"[src]="'assets/'+ StateOfFighter" width="500" height="300" >
+                </div>
             </div>
             <div class="enmy">
                 <div *ngIf="enemy">
-                    <img class="enemy"[src]="'assets/'+ enemy.turnleft" width="500" height="500" >
+                    <img class="enemy"[src]="'assets/'+ enemy?.turnleft" width="500" height="500" >
                 </div>
             </div>
         </div>
@@ -35,17 +32,11 @@
         <p id="actiontext">{{fightingText[cpt]}}</p>
         <input id="actionbtn"type="button" value="continue" (click)="switchText()"> 
         <div id="actionContext" *ngIf="cpt == 2">
-            <div class="attacklist">
-                <div>blabla</div>
-                <div>blabla</div>
-                <div>blabla</div>
-                <div>blabla</div>
-            </div>  
-            <div><input class="fightbtn" type="button" value="Attack"></div>
-            <div><input class="fightbtn" type="button" value="Defense"></div>
-            <div><input class="fightbtn" type="button" value="Objet"></div>
+            <div><input class="fightbtn" type="button" [value]="attackOne?.name" (click)="actionAttack(attackOne.id)"></div>
+            <div><input class="fightbtn" type="button" [value]="attackTwo?.name" (click)="actionAttack(attackTwo.id)"></div>
+            <div><input class="fightbtn" type="button" [value]="attackThree?.name" (click)="actionAttack(attackThree.id)"></div>
+            <div><input class="fightbtn" type="button" [value]="attackFour?.name" (click)="actionAttack(attackFour.id)"></div>
         </div> 
     </div>
 </div>
 </div>
-<div id="caca"></div>

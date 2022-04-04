@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Iperso } from '../interfaces/iperso';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,7 @@ export class PersoService {
  private _urlUser : string = "http://localhost:3000/user/";
 //  private _urlCapacities : string = "http://localhost:3000/capacities";
 
+ public idList : string[] = [];
  public character? : Iperso;
  public characters : Iperso[] = [];
  public enemyId : number = 0;
@@ -25,7 +26,6 @@ export class PersoService {
   // }
   public getAll(){ //retourne un observable de type any
     return this._httpclient.get<Iperso[]>(this._urlUser)
-
   }
 
   public getOne(id : number){
@@ -49,14 +49,16 @@ export class PersoService {
       //   catchError(this.han)
       // )
   }
-  public getOpponent(id : number){
-   id++
-   //console.log(id);
-    return this._httpclient.get<Iperso>(this._urlUser + id)
-    .pipe(catchError((err) => {return throwError(err)}))
+
+
+  public getAllOpponents(): Observable<number[]>{
+    
+    return this._httpclient.get<Iperso[]>(this._urlUser)
+    .pipe(map((data) =>{
+      return data.map(nombre => nombre.id)
+    }))
   }
 
-  public getAttackNumber(){
-    
-  }
+  
+
 }

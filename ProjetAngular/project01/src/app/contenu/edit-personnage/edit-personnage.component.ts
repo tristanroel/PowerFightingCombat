@@ -36,16 +36,28 @@ import { PersoService } from 'src/app/services/perso.service';
       <div class="section">
         <input type="text" formControlName="weight">
       </div>
-
       <div class="section">
         <label>Attaque 1 : </label>
-      <!-- </div>
-      <div class="section"> -->
-        <!-- <select name="attack1" formControlName="attack1">
-            <option *ngFor="let item of attacklist" (click)="getOneAttack()">{{item.name}}   
-        </select> -->
-        <input type="number" formControlName="attack1" >
-        <div></div>
+        <input type="number" formControlName="attack1" (change)="getAttackOne()">
+        <div *ngIf="attackOne" style="color: coral;">{{attackOne?.name}} : "{{attackOne?.description}}"</div>
+      </div>
+      <div class="section">
+        <label>Attaque 2 : </label>
+        <input type="number" formControlName="attack2" (change)="getAttackTwo()">
+        <div *ngIf="attackTwo">{{attackTwo?.name}} : "{{attackTwo?.description}}"</div>
+
+      </div>
+      <div class="section">
+        <label>Attaque 3 : </label>
+        <input type="number" formControlName="attack3" (change)="getAttackThree()">
+        <div *ngIf="attackThree">{{attackThree?.name}} : "{{attackThree?.description}}"</div>
+
+      </div>
+      <div class="section">
+        <label>Attaque 4 : </label>
+        <input type="number" formControlName="attack4" (change)="getAttackFour()">
+        <div *ngIf="attackFour">{{attackFour?.name}} : "{{attackFour?.description}}"</div>
+
       </div>
 
       <div class="section">
@@ -59,7 +71,7 @@ import { PersoService } from 'src/app/services/perso.service';
       <div style="margin-left: 10px">Xp : {{fighter?.xp}}</div>
     </div>
     <div id="img">
-      <img class="fighter"[src]="'assets/'+ fighter?.frontattack" width="300" height="300" >
+      <img class="fighter" *ngIf="fighter?.frontattack != null" [src]="'assets/'+ fighter?.frontattack" width="300" height="300" >
     </div>
   </div>
 </div> 
@@ -76,6 +88,11 @@ export class EditPersonnageComponent implements OnInit {
   public attackId! : number;
   public attack! : Icapacities;
 
+  public attackOne! : Icapacities;
+  public attackTwo! : Icapacities;
+  public attackThree! : Icapacities;
+  public attackFour! : Icapacities;
+
   public _formgroup! : FormGroup
 
   //! => ne s'initialise pas direct, mais s'initialiseras par la suite
@@ -91,10 +108,10 @@ export class EditPersonnageComponent implements OnInit {
       name : [null], //les validateurs seront set dans le queryNewPkm en fonction de la taille du nom.
       lastname : [null],
       weight : [null],
-      attack1 : [1],
+      attack1 : [0],
       attack2 : [1],
-      attack3 : [1],
-      attack4 : [1],
+      attack3 : [2],
+      attack4 : [3],
     })    
 
     this._route.queryParams.subscribe(params=>{
@@ -119,8 +136,16 @@ export class EditPersonnageComponent implements OnInit {
       next : (data)=>{
         this.attacklist = data;
         console.log(data);
+      },
+      complete : ()=>{
+        this.attackOne = this.attacklist[0];
+        this.attackTwo = this.attacklist[1];
+        this.attackThree = this.attacklist[2];
+        this.attackFour = this.attacklist[3]
       }
+
     })
+    console.warn(this.attackOne)
     
   }
 
@@ -129,6 +154,10 @@ export class EditPersonnageComponent implements OnInit {
       name : this.fighter.name,
       lastname : this.fighter.lastname,
       weight : this.fighter.weight,
+      attack1 : this.fighter.attack1,
+      attack2 : this.fighter.attack2,
+      attack3 : this.fighter.attack3,
+      attack4 : this.fighter.attack4
     })
   }
   
@@ -147,9 +176,9 @@ export class EditPersonnageComponent implements OnInit {
       level : this.fighter.level,
       xp : this.fighter.xp,
       attack1 : this._formgroup.value.attack1,
-      attack2 : this.fighter.attack2,
-      attack3 : this.fighter.attack3,
-      attack4 : this.fighter.attack4
+      attack2 : this._formgroup.value.attack2,
+      attack3 : this._formgroup.value.attack3,
+      attack4 : this._formgroup.value.attack4
     }
     this._persoservice.edit(this.fighterId, this.fighterform).subscribe({
       next : (data)=>{
@@ -161,16 +190,47 @@ export class EditPersonnageComponent implements OnInit {
       // }
       
     })
-
+    
     console.log(this.fighterform);
   }
-  getOneAttack(){
-    this._capacitiesservice.getAttack(this.attackId).subscribe({
-      next : (data)=>{
-        this.attack = data
-        console.log(data.id);
+  // getOneAttack(){
+  //   this._capacitiesservice.getAttack(this.attackId).subscribe({
+  //     next : (data)=>{
+  //       this.attack = data
+  //       console.log(data.id);
         
-      }
-    })
+  //     }
+  //   })
+  // }
+
+///////////////////////////////////////////////////////////////////////////////////
+  getAttackOne(){
+    // let nameNumber = 1
+    let number = this._formgroup.value.attack1
+    console.log(number);
+    console.log(this.attacklist[number])
+    return this.attackOne = this.attacklist[number];
   }
+  getAttackTwo(){
+    // let nameNumber = 1
+    let number = this._formgroup.value.attack2
+    console.log(number);
+    console.log(this.attacklist[number])
+    return this.attackTwo = this.attacklist[number];
+  }
+  getAttackThree(){
+    // let nameNumber = 1
+    let number = this._formgroup.value.attack3
+    console.log(number);
+    console.log(this.attacklist[number])
+    return this.attackThree = this.attacklist[number];
+  }
+  getAttackFour(){
+    // let nameNumber = 1
+    let number = this._formgroup.value.attack4
+    console.log(number);
+    console.log(this.attacklist[number])
+    return this.attackFour = this.attacklist[number];
+  }
+
 }

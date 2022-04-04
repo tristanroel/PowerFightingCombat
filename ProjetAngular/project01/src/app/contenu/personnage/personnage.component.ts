@@ -6,6 +6,7 @@ import { PersoService } from 'src/app/services/perso.service';
 import { RoutingParamsService } from 'src/app/services/routing-params.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { Subscription } from 'rxjs';
+import { Icapacities } from 'src/app/interfaces/icapacities';
 
 @Component({
   selector: 'app-personnage',
@@ -18,10 +19,10 @@ import { Subscription } from 'rxjs';
     <div id="container">
         <div class="charact" *ngFor="let item of persos;let i = index">
           <div>
-            {{item.name}}
+            {{item?.name}}
           </div>
           <div>
-            <img [src]="'assets/'+ item.face" width="200" height="200"(click)="getOneCharacter(item.id)">
+            <img [src]="'assets/'+ item?.face" width="200" height="200"(click)="getOneCharacter(item.id)">
           </div>
           <div>
             <input class="button" type="button" value="DELETE"(click)="deleteCharacter(item.id)">

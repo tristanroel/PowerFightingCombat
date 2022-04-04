@@ -18,9 +18,10 @@ export class CapacitiesService {
     return this._httpclient.get<Icapacities[]>(this._urlCapacities)
   }
 
-  getAttack(id : number){
-    return this._httpclient.get<Icapacities>(this._urlCapacities + id)
-  }
+  
+  // getAttack(id : number){
+  //   return this._httpclient.get<Icapacities>(this._urlCapacities + id)
+  // }
   
 
 }

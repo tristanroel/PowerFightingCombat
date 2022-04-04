@@ -7,70 +7,52 @@
       "face": "perso1.png",
       "id": 15,
       "pv": 100,
-      "level": 1,
-      "xp": 0,
       "turnleft": "leftbody.gif",
       "turnright": "rightbody.gif",
       "backattack": "Attack-back.gif",
       "frontattack": "Attack-front.gif",
-      "attack1":1,
-      "attack2":2,
-      "attack3":3,
-      "attack4":4
+      "level": 1,
+      "xp": 0,
+      "attack1": 0,
+      "attack2": 1,
+      "attack3": 3,
+      "attack4": 4
     },
     {
       "name": "Laetitia",
       "lastname": "Barone",
       "weight": "52 KG",
-      "pv": 100,
-      "level": 1,
-      "xp": 0,
       "face": "perso1.png",
-      "turnleft": "leftbody.gif",
-      "turnright": "rightbody.gif",
-      "frontattack": "Attack-front.gif",
-      "backattack": "Attack-back.gif",
       "id": 16,
-      "attack1":1,
-      "attack2":2,
-      "attack3":3,
-      "attack4":4
-    },
-    {
-      "name": "Axel",
-      "lastname": "Clever",
-      "weight": "65 KG",
-      "face": "perso1.png",
-      "id": 17,
       "pv": 100,
-      "level": 1,
-      "xp": 0,
       "turnleft": "leftbody.gif",
       "turnright": "rightbody.gif",
       "backattack": "Attack-back.gif",
       "frontattack": "Attack-front.gif",
-      "attack1":1,
-      "attack2":2,
-      "attack3":3,
-      "attack4":4
+      "level": 1,
+      "xp": 0,
+      "attack1": 1,
+      "attack2": 2,
+      "attack3": 3,
+      "attack4": 4
     },
     {
       "name": "Tristan",
       "lastname": "Roel",
       "weight": "65 KG",
       "face": "perso1.png",
+      "id": 18,
       "pv": 100,
-      "level": 1,
-      "xp": 0,
       "turnleft": "leftbody.gif",
       "turnright": "rightbody.gif",
-      "frontattack": "Attack-front.gif",
       "backattack": "Attack-back.gif",
-      "id": 18,
-      "attack1":1,
-      "attack2":2,
-      "attack3":3,
-      "attack4":4
+      "frontattack": "Attack-front.gif",
+      "level": 1,
+      "xp": 0,
+      "attack1": 0,
+      "attack2": 1,
+      "attack3": 2,
+      "attack4": 3
     },
     {
       "name": "Alex",
@@ -85,10 +67,10 @@
       "frontattack": "Attack-front.gif",
       "backattack": "Attack-back.gif",
       "id": 19,
-      "attack1":1,
-      "attack2":2,
-      "attack3":3,
-      "attack4":4
+      "attack1": 1,
+      "attack2": 2,
+      "attack3": 3,
+      "attack4": 4
     },
     {
       "name": "Gaetan",
@@ -103,10 +85,10 @@
       "frontattack": "Attack-front.gif",
       "backattack": "Attack-back.gif",
       "id": 20,
-      "attack1":1,
-      "attack2":2,
-      "attack3":3,
-      "attack4":4
+      "attack1": 1,
+      "attack2": 2,
+      "attack3": 3,
+      "attack4": 4
     },
     {
       "name": "Simon",
@@ -121,10 +103,10 @@
       "frontattack": "Attack-front.gif",
       "backattack": "Attack-back.gif",
       "id": 21,
-      "attack1":1,
-      "attack2":2,
-      "attack3":3,
-      "attack4":4
+      "attack1": 1,
+      "attack2": 2,
+      "attack3": 3,
+      "attack4": 4
     },
     {
       "name": "Apdu",
@@ -139,10 +121,10 @@
       "frontattack": "Attack-front.gif",
       "backattack": "Attack-back.gif",
       "id": 22,
-      "attack1":1,
-      "attack2":2,
-      "attack3":3,
-      "attack4":4
+      "attack1": 1,
+      "attack2": 2,
+      "attack3": 3,
+      "attack4": 4
     },
     {
       "name": "Aurelien",
@@ -157,10 +139,10 @@
       "frontattack": "Attack-front.gif",
       "backattack": "Attack-back.gif",
       "id": 24,
-      "attack1":1,
-      "attack2":2,
-      "attack3":3,
-      "attack4":4
+      "attack1": 1,
+      "attack2": 2,
+      "attack3": 3,
+      "attack4": 4
     },
     {
       "name": "David",
@@ -175,10 +157,10 @@
       "frontattack": "Attack-front.gif",
       "backattack": "Attack-back.gif",
       "id": 25,
-      "attack1":1,
-      "attack2":2,
-      "attack3":3,
-      "attack4":4
+      "attack1": 1,
+      "attack2": 2,
+      "attack3": 3,
+      "attack4": 4
     },
     {
       "name": "simon",
@@ -193,48 +175,47 @@
       "frontattack": "Attack-front.gif",
       "backattack": "Attack-back.gif",
       "id": 27,
-      "attack1":1,
-      "attack2":2,
-      "attack3":3,
-      "attack4":4
+      "attack1": 1,
+      "attack2": 2,
+      "attack3": 3,
+      "attack4": 4
     }
   ],
   "capacities": [
-      {
-        "id": 1,
-        "level" : 1,
-        "name" :"uppercut",
-        "damage": 10,
-        "description": "un puissant coup de point délivré au menton le bras semi fléchi"
-      },
-      {
-        "id": 2,
-        "level" : 1,
-        "name" :"mawashi-geri",
-        "damage": 12,
-        "description": "coup de pied circulaire dévastateur"
-      },
-      {
-        "id": 3,
-        "level" : 1,
-        "name" :"german-souplex",
-        "damage": 20,
-        "description": "puissante prise de catch qui projete l'adversaire à terre"
-      },
-      {
-        "id": 3,
-        "level" : 1,
-        "name" :"fulguro-punch",
-        "damage": 30,
-        "description": "Prochette mecaniquement ses poing vers l'adversaire"
-      },
-      {
-        "id": 3,
-        "level" : 1,
-        "name" :"salsa-dance",
-        "damage": 35,
-        "description": "Dance sensuelle latine occasionant de lourd domage mental et par extension physique"
-      }
-    
+    {
+      "id": 0,
+      "level": 1,
+      "name": "uppercut",
+      "damage": 10,
+      "description": "un puissant coup de point délivré au menton le bras semi fléchi"
+    },
+    {
+      "id": 1,
+      "level": 1,
+      "name": "mawashi-geri",
+      "damage": 12,
+      "description": "coup de pied circulaire dévastateur"
+    },
+    {
+      "id": 2,
+      "level": 1,
+      "name": "german-souplex",
+      "damage": 20,
+      "description": "puissante prise de catch qui projete l'adversaire à terre"
+    },
+    {
+      "id": 3,
+      "level": 1,
+      "name": "fulguro-punch",
+      "damage": 30,
+      "description": "Projette mecaniquement ses poing vers l'adversaire"
+    },
+    {
+      "id": 4,
+      "level": 1,
+      "name": "salsa-dance",
+      "damage": 35,
+      "description": "Dance sensuelle latine occasionant de lourd domage mental et par extension physique"
+    }
   ]
 }
