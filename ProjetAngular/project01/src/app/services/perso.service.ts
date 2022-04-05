@@ -59,6 +59,12 @@ export class PersoService {
     }))
   }
 
-  
+  public characterDie(perso : Iperso, cpt? : number){
+    if(perso.pv <= 0){
+       return cpt = 100;
+    }else{
+      return 
+    }
+  }
 
 }

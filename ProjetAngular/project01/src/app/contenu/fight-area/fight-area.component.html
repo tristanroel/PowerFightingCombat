@@ -31,7 +31,7 @@
     <div id="text-box" *ngIf="fighter">
         <p id="actiontext">{{fightingText[cpt]}}</p>
         <input id="actionbtn"type="button" value="continue" (click)="switchText()"> 
-        <div id="actionContext" *ngIf="cpt == 2">
+        <div id="actionContext" *ngIf="cpt == 2 || cpt == 8 || cpt == 15 || cpt == 22">
             <div><input class="fightbtn" type="button" [value]="attackOne?.name" (click)="actionAttack(attackOne.id)"></div>
             <div><input class="fightbtn" type="button" [value]="attackTwo?.name" (click)="actionAttack(attackTwo.id)"></div>
             <div><input class="fightbtn" type="button" [value]="attackThree?.name" (click)="actionAttack(attackThree.id)"></div>

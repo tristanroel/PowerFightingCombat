@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Icapacities } from '../interfaces/icapacities';
+import { Iperso } from '../interfaces/iperso';
 
 @Injectable({
   providedIn: 'root'
