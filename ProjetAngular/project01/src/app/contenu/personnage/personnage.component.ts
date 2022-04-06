@@ -46,7 +46,7 @@ import { Icapacities } from 'src/app/interfaces/icapacities';
           <img class="fighter"[src]="'assets/'+ character?.turnleft" width="200" height="200" >
         </div>
         <div class="center">
-          <input class="goButton" type="button" value="Lets Fight!" (click)="lesgo()">
+          <input class="goButton" type="button" value="Lets Fight!" (click)="lesgotoArena()">
         </div>
       </div>
 </div>   
@@ -94,7 +94,7 @@ export class PersonnageComponent implements OnInit {
     })
   }
 
-  lesgo(){
+  lesgotoArena(){
     let route ="contenu/fight-area";
     let chaine = this.character?.id
       this._routinparamservice.paramsUrlAssociate(route, chaine);

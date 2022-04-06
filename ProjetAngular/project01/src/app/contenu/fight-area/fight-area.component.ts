@@ -26,17 +26,18 @@ export class FightAreaComponent implements OnInit {
   
   public unNombre : number = 1;
 
-  public attackName? : string;
   public attacklist : Icapacities[] = [];
+  public attackName! : string ;
   public attackOne! : Icapacities;
   public attackTwo! : Icapacities;
   public attackThree! : Icapacities;
   public attackFour! : Icapacities;
-  
+
   private unsubscribeGetOne! : Subscription;
   private unsubscribeOponent! : Subscription;
 
-  public cpt : number = 0;
+  public cpt : number = 1;
+  public oldCompeur! : number;
 
   public fightingText : string[] = [];
 
@@ -52,6 +53,7 @@ export class FightAreaComponent implements OnInit {
   public StateOfEnemy : string = this.enemyIdle
 
   constructor(private _route : ActivatedRoute,
+              private _routingparamservice : RoutingParamsService,
               private _persoservice : PersoService,
               private _capacitiesservice : CapacitiesService) { }
 
@@ -149,10 +151,17 @@ export class FightAreaComponent implements OnInit {
     console.log(response);
     console.log(this.cpt);
     this.cpt++
-
-    if(this.cpt == 5 || this.cpt == 12){
+//contexte combat
+    if(this.cpt % 6 == 0 && this.cpt < 100){
       this.enemyAttack();
     }
+  }
+
+  public switchAtkName(){
+    let ocv = this.oldCompeur
+    console.log("oldcpt depuis le switchatkname : "+ ocv); 
+    console.log("nouveau cpt : "+ this.cpt);
+    this.cpt = (this.cpt - this.cpt) + (ocv + 2) ;
   }
 
   assignText(){
@@ -162,59 +171,123 @@ export class FightAreaComponent implements OnInit {
     if(this.enemy == undefined){
       return []
     }
+    if(this.attackName == undefined){
+      undefined
+    }
 
     return [
+      "",
      this.fighter.name + " entre dans l'arene !!",
      this.enemy.name + " veut clairement vous voir mort !",
     " que voulez vous faire ?",
-    this.fighter.name + " envoie l'attaque " + this.attackName,
+    "",
     "la tension est palpable !! "+this.fighter.name+" et "+this.enemy.name +" ne se lachent pas du regard !",
     this.enemy.name + " envoie l'attaque " + this.enemyAttackName,
     this.enemy.name +" tient des propos fort peu élogieux à l'égard de votre mère !!!",
     "montrez lui ce qu'il en coûte d'oser prononcer le nom de votre bien aimée maman dans ce contexte inaproprié",
     "donnez lui une bonne leçon !",
-    this.fighter.name + " envoie l'attaque " + this.attackName,
+    "",
     "Quel combat intense !!!",
-    "Aucun des deux adversaire ne veut céder la victoire à l'autre !",
     this.enemy.name + " vous attaque avec "+ this.enemyAttackName,
-    "Les coups de "+this.enemy.name + " sont extremement agréssifs !",
+    "Les coups de "+this.enemy.name + " sont extrêmement agressifs !",
     "mais " +this.fighter.name+" n'est pas en reste ...",
     "comment comptez vous réagir ?",
     this.fighter.name + " fait preuve de style avec " + this.attackName,
     "Impossible de prédire l'issue de ce combat !!",
-    "Nous avons sur le ring deux superbes combattant !!!",
     this.enemy.name + " sollicite toutes sa puissance avec " +this.enemyAttackName,
     "La foule est en délire !!!",
     "Ces deux puisants athlètes semblent imperturbable !",
+    "à vous de jouer ! 21",
+    "",
+    "",
+    this.enemy.name + " vous attaque avec "+ this.enemyAttackName,
+    "",
+    "",
+    "à vous d'attaquer !27",
+    "",
+    "Aucun des deux adversaire ne semble vouloir céder la victoire à l'autre !",
+    this.enemy.name + " vous attaque avec "+ this.enemyAttackName,
+    "",
+    "Nous avons sur le ring deux superbes combattant !!!",
+    "choisissez une attaque !33",
+    "",
+    "",
+    this.enemy.name + " riposte avec "+ this.enemyAttackName+ " !",
+    "",
+    "",
+    "Que voulez vous faire ?",
+    "",
+    "",
+    this.enemy.name + " vous attaque avec "+ this.enemyAttackName,
+    "",
+    "",
     "à vous de jouer !",
     "",
     "",
+    this.enemy.name + " vous attaque avec "+ this.enemyAttackName,
     "",
     "",
+    "C'est votre tour",
     "",
     "",
+    this.enemy.name + " vous attaque avec "+ this.enemyAttackName,
     "",
     "",
+    "57",
     "",
     "",
+    this.enemy.name + " vous attaque avec "+ this.enemyAttackName,
     "",
     "",
+    "63",
     "",
     "",
+    this.enemy.name + " vous attaque avec "+ this.enemyAttackName,
     "",
     "",
+    "69",
     "",
     "",
+    this.enemy.name + " vous attaque avec "+ this.enemyAttackName,
     "",
     "",
+    "75",
     "",
     "",
+    this.enemy.name + " vous attaque avec "+ this.enemyAttackName,
     "",
     "",
+    "81",
     "",
-    "pouet pouet",
+    "",
+    this.enemy.name + " vous attaque avec "+ this.enemyAttackName,
+    "",
+    "",
+    "87",
+    "",
+    "",
+    this.enemy.name + " vous attaque avec "+ this.enemyAttackName,
+    "",
+    "",
+    "93",
+    "",
+    "",
+    this.enemy.name + " vous attaque avec " + this.enemyAttackName,
+    "",
+    "",
+    "99",
+    this.fighter.name+ " attaque avec !...oh !?...WHOOOOAAAAAAW !!!!!! "+ this.enemy.name +" s'éfondre au sol !! ",
     this.enemy.name + " est K.O !",
-    "ho",
+    this.fighter.name + "remporte la victoire !!!",
+    "Vous gagnez tatatata point Experience",
+    "",
+    "105",
+    this.fighter.name + " envoie l'attaque " + this.attackOne.name+" !",
+    this.fighter.name + " utilise l'attaque " + this.attackTwo.name+" !!",
+    this.fighter.name + " envoie l'attaque " + this.attackThree.name+" !!!",
+    this.fighter.name + " envoie l'attaque " + this.attackFour.name+" !!!!",
+    ""
+
 
     ]
   }
@@ -223,23 +296,37 @@ export class FightAreaComponent implements OnInit {
   public actionAttack(id : number){
     //console.log(this.attacklist[id].damage);
     //console.log(this.enemy.pv);
-    this.attackName = this.attacklist[id].name
+     let atkid = this.attacklist[id].id
+      console.log("id actuel : "+atkid);
 
-    this.StateOfFighter = this.fighterAtkAnim;
-    setTimeout(() => {
-      this.StateOfFighter = this.fighterIdle
-    }, 995);
+      let atkList = [this.attackOne.id, this.attackTwo.id, this.attackThree.id, this.attackFour.id];
+      let cptAtkNbr = atkList.indexOf(atkid);
+     
+     this.StateOfFighter = this.fighterAtkAnim;
+     setTimeout(() => {
+       this.StateOfFighter = this.fighterIdle
+      }, 720);
 
-    this.enemy.pv = (this.enemy.pv) - (this.attacklist[id].damage);
-
-    if(this.enemy.pv <= 0){
-      console.log("enemy die");
-      this.enemy.pv = 0;
-      this.cpt = 48;
-    }else{
-      this.cpt++;
+      let OldCpt = this.cpt
+      
+      this.enemy.pv = (this.enemy.pv) - (this.attacklist[id].damage);
+      
+      if(this.enemy.pv <= 0){
+        console.log("enemy die");
+        this.upXp();
+        console.log("xp joueur :" + this.fighter.xp);
+        this.enemy.pv = 0;
+        this.cpt = 100;
+      }else{
+        
+      console.log("le vieux compteur : " + OldCpt);
+      this.oldCompeur = OldCpt;
+      this.cpt = this.cpt - this.cpt + ((105) + (cptAtkNbr + 1));
+      console.log("le compteur est a : " + this.cpt);
+      
     }
   }
+  
 
   public enemyAttack(){
     //console.log(this.enemy.name);    
@@ -248,6 +335,12 @@ export class FightAreaComponent implements OnInit {
     let randomNbr = Math.floor(Math.random() * atkTab.length)
     this.enemyAttackName = this.enemyAttackName + this.attacklist[randomNbr].name
     this.fighter.pv = (this.fighter.pv) - (this.attacklist[randomNbr].damage);
+    this.StateOfEnemy = this.enemyAtkAnim;
+
+    this.StateOfEnemy = this.enemyAtkAnim;
+    setTimeout(() => {
+      this.StateOfEnemy = this.enemyIdle
+    }, 995);
   }
 
   /**
@@ -264,6 +357,17 @@ export class FightAreaComponent implements OnInit {
      
     }
      return this.enemyNumberList[randomNbr]
+  }
+
+  upXp(){
+    console.log("yoyo");
+    
+    return this.fighter.xp = this.fighter.xp + 10
+  }
+
+  return(){
+    let route = "contenu/personnage"
+    this._routingparamservice.paramsUrlAssociate(route)
   }
 
 }

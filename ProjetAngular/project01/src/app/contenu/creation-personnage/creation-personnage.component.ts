@@ -25,7 +25,12 @@ export class CreationPersonnageComponent implements OnInit {
       turnleft : ["leftbody.gif"],
       turnright : ["rightbody.gif"],
       frontattack : ["Attack-front.gif"],
-      backattack : ["Attack-back.gif"]
+      backattack : ["Attack-back.gif"],
+      attack1 : [1],
+      attack2 : [2],
+      attack3 : [3],
+      attack4 : [4],
+
     })
   }
 

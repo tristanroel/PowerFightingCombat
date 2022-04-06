@@ -18,25 +18,31 @@
         <div id="area">
             <div class="fghtr">
                 <div>
-                    <img *ngIf="fighter" class="fighter"[src]="'assets/'+ StateOfFighter" width="500" height="300" >
+                    <img *ngIf="fighter" class="fighter"[src]="'assets/'+ StateOfFighter" width="400" height="300" >
                 </div>
             </div>
             <div class="enmy">
                 <div *ngIf="enemy">
-                    <img class="enemy"[src]="'assets/'+ enemy?.turnleft" width="500" height="500" >
+                    <img class="enemy"[src]="'assets/'+ StateOfEnemy" width="500" height="500" >
                 </div>
             </div>
         </div>
     </div>
     <div id="text-box" *ngIf="fighter">
         <p id="actiontext">{{fightingText[cpt]}}</p>
-        <input id="actionbtn"type="button" value="continue" (click)="switchText()"> 
-        <div id="actionContext" *ngIf="cpt == 2 || cpt == 8 || cpt == 15 || cpt == 22">
+        <input *ngIf="cpt <= 102" id="actionbtn"type="button" value="continue" (click)="switchText()"> 
+        <div id="actionContext" *ngIf="cpt % 6 == 3 && cpt < 100">
             <div><input class="fightbtn" type="button" [value]="attackOne?.name" (click)="actionAttack(attackOne.id)"></div>
             <div><input class="fightbtn" type="button" [value]="attackTwo?.name" (click)="actionAttack(attackTwo.id)"></div>
             <div><input class="fightbtn" type="button" [value]="attackThree?.name" (click)="actionAttack(attackThree.id)"></div>
             <div><input class="fightbtn" type="button" [value]="attackFour?.name" (click)="actionAttack(attackFour.id)"></div>
-        </div> 
+        </div>
+        <div>
+            <input *ngIf="cpt == 103" id="actionbtn" type="button" value="continue" (click)="return()">
+        </div>
+        <div>
+           <input type="button" value="" (click)="switchAtkName()">
+        </div>
     </div>
 </div>
 </div>
