@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+* :not(img){
+    margin: 0px;
+    padding: 0px;  
+    max-width: 100%;
+}
+body{
+    background-color: #181425;
+
+}
+
+// @media only screen and (max-width: 375px) {
+//     // body{
+//     //     width: 375px;
+//     // }
+//   }

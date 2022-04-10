@@ -163,44 +163,21 @@
       "attack4": 4
     },
     {
-      "name": "Nino",
-      "lastname": "Serry",
-      "weight": "85 ",
+      "name": "John",
+      "lastname": "Turner",
+      "weight": "85 KG",
       "pv": 100,
+      "level": 1,
       "face": "perso1.png",
       "turnleft": "leftbody.gif",
       "turnright": "rightbody.gif",
       "frontattack": "Attack-front.gif",
       "backattack": "Attack-back.gif",
+      "attack1": 1,
+      "attack2": 2,
+      "attack3": 3,
+      "attack4": 4,
       "id": 26
-    },
-    {
-      "name": "hjkvlutyf",
-      "lastname": "cgch",
-      "weight": "gfkyt",
-      "pv": 100,
-      "face": "perso1.png",
-      "turnleft": "leftbody.gif",
-      "turnright": "rightbody.gif",
-      "frontattack": "Attack-front.gif",
-      "backattack": "Attack-back.gif",
-      "id": 27
-    },
-    {
-      "name": "lhggktfk",
-      "lastname": "hjfktvliy",
-      "weight": "kc",
-      "face": "perso1.png",
-      "id": 28,
-      "pv": 100,
-      "turnleft": "leftbody.gif",
-      "turnright": "rightbody.gif",
-      "backattack": "Attack-back.gif",
-      "frontattack": "Attack-front.gif",
-      "attack1": 4,
-      "attack2": 4,
-      "attack3": 4,
-      "attack4": 4
     }
   ],
   "capacities": [

@@ -6,6 +6,7 @@ import { Iperso } from 'src/app/interfaces/iperso';
 import { CapacitiesService } from 'src/app/services/capacities.service';
 import { PersoService } from 'src/app/services/perso.service';
 import { RoutingParamsService } from 'src/app/services/routing-params.service';
+import { SoundsService } from 'src/app/services/sounds.service';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class FightAreaComponent implements OnInit {
 
   public enemy! : Iperso;
   public enemyList : Iperso[] = [];
-  enemyAttackName! : string;
+  public enemyAttackName! : string;
 
   public enemyNumberList : number[] = [];
   
@@ -32,6 +33,11 @@ export class FightAreaComponent implements OnInit {
   public attackTwo! : Icapacities;
   public attackThree! : Icapacities;
   public attackFour! : Icapacities;
+
+  public enemyAttackOne! : Icapacities;
+  public enemyAttackTwo! : Icapacities;
+  public enemyAttackThree! : Icapacities;
+  public enemyAttackFour! : Icapacities;
 
   private unsubscribeGetOne! : Subscription;
   private unsubscribeOponent! : Subscription;
@@ -50,9 +56,12 @@ export class FightAreaComponent implements OnInit {
 
   public enemyIdle : string = "leftbody.gif";
   public enemyAtkAnim : string = "Attack-front.gif";
-  public StateOfEnemy : string = this.enemyIdle
+  public enemyKbAnim : string = "Knockback-front.gif";
+  public StateOfEnemy : string = this.enemyIdle;
+  public nothingImg : string = "nothing.png"
 
   constructor(private _route : ActivatedRoute,
+              private _soundservice : SoundsService,
               private _routingparamservice : RoutingParamsService,
               private _persoservice : PersoService,
               private _capacitiesservice : CapacitiesService) { }
@@ -92,35 +101,6 @@ export class FightAreaComponent implements OnInit {
         })
       }
     })
-
-    
-    // this.unsubscribeOponent = this._persoservice.getOpponent(this.fighterId).subscribe({
-    //   next : (data)=>{
-    //     console.log(data);
-    //     this.enemy = data
-    //   },
-    //   error: (err) =>{
-    //     console.log("sapristi saucisse!");
-    //   },
-    //   complete : ()=>{
-    //     this.unsubscribeOponent.unsubscribe
-
-    //     this.fightingText = this.assignText();
-    //   }
-    // })
-
-    // this._capacitiesservice.getAllCapacities().subscribe({
-    //   next : (data)=>{
-    //     this.attacklist = data;
-    //     console.log(data);
-    //   },
-    //   complete : ()=>{
-    //     this.attackOne = this.attacklist[this.fighter.attack1];
-    //     this.attackTwo = this.attacklist[this.fighter.attack2];
-    //     this.attackThree = this.attacklist[this.fighter.attack3];
-    //     this.attackFour = this.attacklist[this.fighter.attack4]
-    //   }
-    // })
   }
   
 
@@ -147,6 +127,7 @@ export class FightAreaComponent implements OnInit {
   }
 
   switchText(){
+
     let response = this.fightingText[this.cpt]
     console.log(response);
     console.log(this.cpt);
@@ -155,6 +136,7 @@ export class FightAreaComponent implements OnInit {
     if(this.cpt % 6 == 0 && this.cpt < 100){
       this.enemyAttack();
     }
+    this._soundservice.stopSound()
   }
 
   public switchAtkName(){
@@ -276,17 +258,21 @@ export class FightAreaComponent implements OnInit {
     "",
     "",
     "99",
-    this.fighter.name+ " attaque avec !...oh !?...WHOOOOAAAAAAW !!!!!! "+ this.enemy.name +" s'éfondre au sol !! ",
+    this.fighter.name+ " attaque avec ...oh !?... "+ this.enemy.name +" s'éfondre au sol !! ",
     this.enemy.name + " est K.O !",
-    this.fighter.name + "remporte la victoire !!!",
-    "Vous gagnez tatatata point Experience",
+    this.fighter.name + " remporte la victoire !!!",
+    "Vous gagnez "+ this.fighter.xp +" point Experience",
     "",
     "105",
     this.fighter.name + " envoie l'attaque " + this.attackOne.name+" !",
     this.fighter.name + " utilise l'attaque " + this.attackTwo.name+" !!",
-    this.fighter.name + " envoie l'attaque " + this.attackThree.name+" !!!",
-    this.fighter.name + " envoie l'attaque " + this.attackFour.name+" !!!!",
-    ""
+    this.fighter.name + " attaque son adversaire avec " + this.attackThree.name+" !",
+    this.fighter.name + " fait preuve de style avec l'attaque " + this.attackFour.name+" !!",
+    "",
+    this.enemy.name + " enemy vous attaque avec " + this.enemyAttackOne +" !",
+    this.enemy.name + " vous attaque avec " + this.enemyAttackTwo,
+    this.enemy.name + " vous attaque avec " + this.enemyAttackThree,
+    this.enemy.name + " vous attaque avec " + this.enemyAttackFour,
 
 
     ]
@@ -297,33 +283,33 @@ export class FightAreaComponent implements OnInit {
     //console.log(this.attacklist[id].damage);
     //console.log(this.enemy.pv);
      let atkid = this.attacklist[id].id
-      console.log("id actuel : "+atkid);
-
-      let atkList = [this.attackOne.id, this.attackTwo.id, this.attackThree.id, this.attackFour.id];
-      let cptAtkNbr = atkList.indexOf(atkid);
      
-     this.StateOfFighter = this.fighterAtkAnim;
-     setTimeout(() => {
-       this.StateOfFighter = this.fighterIdle
-      }, 720);
+     let atkList = [this.attackOne.id, this.attackTwo.id, this.attackThree.id, this.attackFour.id];
+     let cptAtkNbr = atkList.indexOf(atkid);
+     
+     console.log("id de l'atk actuelle : "+atkid +" le ta : ");
+
+      this.StateOfEnemy = this.enemyKbAnim;
+      this.StateOfFighter = this.fighterAtkAnim;
+      setTimeout(() => {this.StateOfFighter = this.fighterIdle}, 650);
 
       let OldCpt = this.cpt
       
       this.enemy.pv = (this.enemy.pv) - (this.attacklist[id].damage);
       
       if(this.enemy.pv <= 0){
+        setTimeout(()=>{this.StateOfEnemy = this.nothingImg}, 600);      
         console.log("enemy die");
         this.upXp();
         console.log("xp joueur :" + this.fighter.xp);
         this.enemy.pv = 0;
         this.cpt = 100;
       }else{
-        
+      setTimeout(()=>{this.StateOfEnemy = this.enemyIdle}, 300);
       console.log("le vieux compteur : " + OldCpt);
       this.oldCompeur = OldCpt;
       this.cpt = this.cpt - this.cpt + ((105) + (cptAtkNbr + 1));
-      console.log("le compteur est a : " + this.cpt);
-      
+      console.log("le compteur est a : " + this.cpt); 
     }
   }
   
@@ -361,8 +347,10 @@ export class FightAreaComponent implements OnInit {
 
   upXp(){
     console.log("yoyo");
+    let xpUp = this.fighter.xp = this.fighter.xp + 10
+    // this._persoservice.gainXp(xpUp, this.fighter.id,this.fighter)
+    console.log(this.fighter.xp);
     
-    return this.fighter.xp = this.fighter.xp + 10
   }
 
   return(){

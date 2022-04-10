@@ -173,6 +173,7 @@ export class EditPersonnageComponent implements OnInit {
       turnright : this.fighter.turnright,
       backattack : this.fighter.backattack,
       frontattack : this.fighter.frontattack,
+      frontknockback : this.fighter.frontknockback,
       level : this.fighter.level,
       xp : this.fighter.xp,
       attack1 : this._formgroup.value.attack1,

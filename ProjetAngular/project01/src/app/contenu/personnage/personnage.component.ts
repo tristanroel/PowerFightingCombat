@@ -7,13 +7,15 @@ import { RoutingParamsService } from 'src/app/services/routing-params.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { Subscription } from 'rxjs';
 import { Icapacities } from 'src/app/interfaces/icapacities';
+import { SoundsService } from 'src/app/services/sounds.service';
 
 @Component({
   selector: 'app-personnage',
   animations: [],
   styleUrls: ['./personnage.component.scss'],
   template: `
-  
+
+  <div id="space"></div>
   <div id="contenu">
   
     <div id="container">
@@ -22,16 +24,18 @@ import { Icapacities } from 'src/app/interfaces/icapacities';
             {{item?.name}}
           </div>
           <div>
-            <img [src]="'assets/'+ item?.face" width="200" height="200"(click)="getOneCharacter(item.id)">
+            <img id="slctcharacter" [src]="'assets/'+ item?.face"(click)="getOneCharacter(item.id)">
           </div>
-          <div>
-            <input class="button" type="button" value="DELETE"(click)="deleteCharacter(item.id)">
+          <!-- <div class="boutons"> -->
+            <input class="btn" type="button" value="DELETE"(click)="deleteCharacter(item.id)">
             <!-- <a routerLink="contenu/edit-personnage"><button class="button">EDIT</button></a> -->
-            <input class="button" type="button" value="EDIT" (click)="goEdit(item.id)">
-          </div>
+            <input class="btn" type="button" value="EDIT" (click)="goEdit(item.id)">
+          <!-- </div> -->
         </div>  
     </div>
-    
+</div>
+<div id="contenu">
+
       <div id="info" *ngIf="character != undefined">
         <div>
           {{character?.name}}
@@ -43,7 +47,7 @@ import { Icapacities } from 'src/app/interfaces/icapacities';
           {{character?.weight}}
         </div>
         <div id="anim">
-          <img class="fighter"[src]="'assets/'+ character?.turnleft" width="200" height="200" >
+          <img class="fighter"[src]="'assets/'+ character?.turnleft" >
         </div>
         <div class="center">
           <input class="goButton" type="button" value="Lets Fight!" (click)="lesgotoArena()">
@@ -56,11 +60,13 @@ export class PersonnageComponent implements OnInit {
 
   persos : Iperso[] = [];
   public character? : Iperso;
+  
 
   private getAllService! : Subscription;
 
 
   constructor(private _persoservices : PersoService,
+              private _soundservice : SoundsService,
               private _router : Router,
               private _routinparamservice : RoutingParamsService) {}
 
@@ -99,6 +105,7 @@ export class PersonnageComponent implements OnInit {
     let chaine = this.character?.id
       this._routinparamservice.paramsUrlAssociate(route, chaine);
     //this._router.navigate(["contenu/fight-area"], {queryParams: {fighterName : this.character?.name }} );
+   this._soundservice.playSound()
   }
   goEdit(id : number){
     let route ="contenu/edit-personnage";

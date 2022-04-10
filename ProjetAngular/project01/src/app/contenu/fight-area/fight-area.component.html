@@ -1,13 +1,14 @@
+<div id="space"></div>
 <div id="background">
 <div id="info">
     <div class="details" *ngIf="fighter">
-        <div style="color: white;font-size: 11px;position: absolute;top: 167px;">
+        <div class="lvlinfo">
             lvl:{{fighter?.level}}</div>
         <div>{{fighter?.name}}</div>
         <div style="margin-top: 10px;">{{fighter?.pv}} PV</div>
     </div>
     <div class="details" *ngIf="enemy">
-        <div style="color: white;font-size: 11px;position: absolute;top: 167px;">
+        <div class="lvlinfo">
             lvl:{{enemy?.level}}</div>
         <div>{{enemy?.name}}</div>
         <div style="margin-top: 10px;">{{enemy?.pv}} PV</div>
@@ -18,12 +19,12 @@
         <div id="area">
             <div class="fghtr">
                 <div>
-                    <img *ngIf="fighter" class="fighter"[src]="'assets/'+ StateOfFighter" width="400" height="300" >
+                    <img *ngIf="fighter" class="fighter"[src]="'assets/'+ StateOfFighter" >
                 </div>
             </div>
             <div class="enmy">
                 <div *ngIf="enemy">
-                    <img class="enemy"[src]="'assets/'+ StateOfEnemy" width="500" height="500" >
+                    <img [src]="'assets/'+ StateOfEnemy" class="enemy" >
                 </div>
             </div>
         </div>
@@ -41,7 +42,10 @@
             <input *ngIf="cpt == 103" id="actionbtn" type="button" value="continue" (click)="return()">
         </div>
         <div>
-           <input type="button" value="" (click)="switchAtkName()">
+           <input *ngIf="cpt >= 106 && cpt <= 109" id="actionbtn" type="button" value="continue" (click)="switchAtkName()">
+        </div>
+        <div *ngIf="cpt == 103">
+            
         </div>
     </div>
 </div>

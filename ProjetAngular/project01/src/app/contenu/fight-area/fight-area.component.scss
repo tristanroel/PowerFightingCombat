@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-*{
+*:not(img){
     font-family: 'Press Start 2P', cursive;
     list-style: none;
+    max-width: 100%;
+    //overflow: hidden;
 }
 
 #info{
@@ -47,7 +49,7 @@
 
 #text-box{
     border: 4px solid black;
-    padding: 0px 10px 10px;
+    padding:10px 10px 10px;
     margin:0px 50px;
     background: white;
     z-index: 10;
@@ -88,9 +90,13 @@
 }
 .fighter{
     image-rendering: pixelated;
+    width:400px; 
+    height:300px
 }
 .enemy{
     image-rendering: pixelated; 
+    width: 500px;
+    height: 500px;
 }
 #actionContext{
     border: 4px solid black;
@@ -127,10 +133,19 @@
     background-position: bottom;
     image-rendering: pixelated;
 }
+#space{height: 100px;}
+
+.lvlinfo{
+    color: white;
+    font-size: 11px;
+    position: absolute;
+    top: 130px;
+}
 
 
 
 
+// 
 @keyframes fightergo{
     0% {left: 1000px; top: 0px;}
     100% {left : 0px; top: 0px;}
@@ -145,3 +160,99 @@
         background-repeat: no-repeat;
     }
 }
+// @media only screen and (max-width: 1700px) {
+//     .lvlinfo{top: 800px;background-color: yellowgreen;}
+// }
+@media only screen and (max-width: 540px) {
+    .fighter{width: 330px;height: 230px;padding-top:100px ;}
+    .enemy{width: 200px;height: 400px;padding-top: 90px; object-fit: cover;}
+    .fghtr{margin-right: 110px;}
+    #text-box{margin: 0px 10px;}
+    #background{background-size: cover;}
+    #area{height: 310px;}
+    #space{height: 50px;}
+    .details{width: 150px;}
+    #text-box{font-size: 14px;}
+    .lvlinfo{top:180px;}
+}
+
+@media only screen and (max-width: 414px) {
+    #space{height: 150px;}
+    .lvlinfo{top:200px;}
+    .fightbtn{padding: 15px 10px;}
+
+}
+// @media only screen and (width: 390px) {
+//     #space{height: 150px;}
+//     .lvlinfo{top:200px;}
+// }
+// @media only screen and (width: 393px) {
+//     #space{height: 150px;}
+//     .lvlinfo{top:200px;}
+// }
+// @media only screen and (width: 412px) {
+//     #space{height: 150px;}
+//     .lvlinfo{top:200px;}
+// }
+@media only screen and (height: 568px) {
+    #space{height: 0px;}
+    .lvlinfo{top:100px;}
+    .fightbtn{padding: 15px 10px;}
+    .details{font-size: 12px;}
+    .fghtr{margin-right: 200px;}
+
+}
+@media only screen and (max-width: 400px) {
+    #space{height: 50px;}
+    .lvlinfo{top:100px;}
+    .fightbtn{padding: 15px 10px;}
+    .details{font-size: 12px;}
+
+}
+@media only screen and (max-width: 333px) {
+    .fighter{width: 300px;height: 200px;padding-top:120px ;}
+    .enemy{width: 150px;height: 370px;padding-top: 110px; object-fit: cover;}
+    .fghtr{margin-right: 70px;}
+    #space{height: 100px;}
+    .lvlinfo{top:150px;}
+    .details{width: 100px;}
+    .fightbtn{padding: 15px 10px;}
+    #text-box{font-size: 11px;}
+
+
+}
+
+@media only screen and (max-height: 812px) {
+    #space{height: 130px;}
+    .lvlinfo{top:150px;}
+}
+@media only screen and (max-height: 750px) {
+    #space{height: 15px;}
+    .lvlinfo{top:70px;}
+    .fightbtn{padding: 9px 10px;}
+}
+@media only screen and (max-height: 600px) {
+    #space{height: 50px;}
+    .lvlinfo{top:100px;}
+}
+@media only screen and (height: 1024px) {
+    #space{height: 300px;}
+    .lvlinfo{top:350px;}
+}
+@media only screen and (height: 1366px) {
+    #space{height: 400px;}
+    .lvlinfo{top:400px;}
+}
+
+// @media only screen and (max-width: 380px) {
+//     .fighter{width: 330px;height: 230px;padding-top:100px ;}
+//     .enemy{width: 200px;height: 400px;padding-top: 90px; object-fit: cover;}
+//     .fghtr{margin-right: 110px;}
+//     #text-box{margin: 0px 10px;}
+//     #background{background-size: cover;}
+//     #area{height: 310px;}
+//     #space{height: 50px;}
+//     .details{width: 150px;}
+//     #text-box{font-size: 14px;}
+//     .lvlinfo{top:110px;}
+//   }

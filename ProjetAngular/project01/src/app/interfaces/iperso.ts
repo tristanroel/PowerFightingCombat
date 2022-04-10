@@ -17,5 +17,6 @@ export interface Iperso {
     turnright : string;
     backattack : string;
     frontattack : string;
+    frontknockback : string;
     
 }

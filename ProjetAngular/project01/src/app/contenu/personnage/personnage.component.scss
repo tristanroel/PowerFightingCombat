@@ -2,19 +2,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 #container{
-    max-width: 848px;
-    height: 500px auto;
-    border: 4px solid black;
+    width: 665px;
+    height: 300px;
+    //border: 4px solid white;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    background-color: #6C76AC;
+    overflow-x: scroll
+    
 }
 
+::-webkit-scrollbar{
+   width: 5px;
+   //background-color: #181425;
+}
+::-webkit-scrollbar-track {
+    background-color: #6C76AC;
+    width: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #181425; 
+  }
 .charact{
     margin: 5px;
     //background-color: red;
 }
-.bouton{
+.boutons{
     margin: 5px;
 }
 
@@ -23,18 +37,26 @@
     justify-content: center;
     font-family: 'Poppins', sans-serif;
     font-family: 'Righteous', cursive;
-}
+    //flex-direction: column;
 
+}
+#slctcharacter{
+    width: 100px;
+    height: 100px;
+}
 #info{
     margin: 15px;
+    color: white;
 }
 .center{
     text-align: center;
 }
 
-.button{
-    border: 4px solid black;
+.btn{
+    border: 2px solid black;
     margin-right: 5px;
+    padding: 2px;
+    font-size: 8px;
 }
 .goButton{
     background-color: coral;
@@ -47,15 +69,35 @@
 
 .fighter{
     image-rendering: pixelated;
+    width:200; 
+    height:200;
+
 }
 
 #anim{
     position: relative;
     animation-name: lesgo;
     animation-duration: 2s;
+    display: flex;
+    justify-content: center;
 }
+
+#space{height: 100px;}
 
 @keyframes lesgo{
     0% {left: 200px; top: 0px;}
     100% {left : 0px; top: 0px;}
+}
+
+@media only screen and (max-width: 550px) {
+    #slctcharacter{width: 80px;height: 80px;}
+    .btn{display: none;}
+    .charact{margin: 1px;height: 1OOpx;}
+    #container{width: 334px; height: 300px; overflow-x: scroll;}
+    .fighter{margin: auto;}
+}
+@media only screen and (width: 320px) {
+    #space{height: 35px;;}
+    #container{width: 252px; height: 230px;}
+
 }

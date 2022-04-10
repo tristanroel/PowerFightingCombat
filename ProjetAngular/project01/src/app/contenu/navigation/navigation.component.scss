@@ -1,20 +1,53 @@
-#NavBar{
-    width: 98%;
-    height: 50px;
-    border: 4px solid black;
-    color: blanchedalmond;
-    background-color: cornflowerblue;
-    //padding: 4px;
-    margin: 10px;
-    text-align: center;
-    padding-top: 15px;
-}
 
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+// * {
+//     margin: 0px;
+//     padding: 0px;
+// }
+#NavBar{
+    font-family: 'Press Start 2P', cursive;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    color: blanchedalmond;
+    background-color: #6C76AC;
+    justify-content: space-around;
+    //margin: 10px;
+    text-align: center;
+    //padding-top: 15px;
+    vertical-align:middle;
+}
+.link{
+    // background-image: url(../../../assets/select.png);
+    // background-size: cover;
+    // image-rendering: pixelated;
+    // width: 102px;
+    // height: 28px;
+    margin-top: 30px;
+    font-weight: lighter;
+    font-size: 12px;
+}
+// .link:hover{
+//     background-image: url(../../../assets/select2.png);
+    
+// }
+.img{
+    background-image:url(../../../assets/TRlogo2.gif);
+    background-size: cover;
+    image-rendering: pixelated;
+    width: 60px;
+    height: 60px;
+}
 a{
-    margin: 10px;
+    // margin: 0px 10px 50px;
     text-decoration: none;
     
 }
 a:visited{
     color: aliceblue;
 }
+
+// @media only screen and (max-width: 415px) {
+//     #NavBar{height: 60px;}
+//     .link{margin-top: 25px;}
+// }
