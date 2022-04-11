@@ -18,5 +18,6 @@ export interface Iperso {
     backattack : string;
     frontattack : string;
     frontknockback : string;
+    backknockback : string;
     
 }

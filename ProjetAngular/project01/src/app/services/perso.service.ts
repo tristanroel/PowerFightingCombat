@@ -59,9 +59,10 @@ export class PersoService {
     }))
   }
 
-  // public gainXp(nombre : number, id : number, perso : Iperso){
-  //   return this._httpclient.put<Iperso>(this._urlUser + id, perso.level + nombre)
-  // }
+  public gainXp(nombre : number, id : number, perso : Iperso){
+   return this._httpclient.put<Iperso>(this._urlUser + id, perso.xp + nombre)
+   //return perso.xp = perso.xp + nombre
+  }
   // public characterDie(perso : Iperso, cpt? : number){
   //   if(perso.pv <= 0){
   //      return cpt = 100;

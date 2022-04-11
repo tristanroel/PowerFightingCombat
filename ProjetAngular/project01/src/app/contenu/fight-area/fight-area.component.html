@@ -31,7 +31,7 @@
     </div>
     <div id="text-box" *ngIf="fighter">
         <p id="actiontext">{{fightingText[cpt]}}</p>
-        <input *ngIf="cpt <= 102" id="actionbtn"type="button" value="continue" (click)="switchText()"> 
+        <input *ngIf="cpt <= 102 || (cpt >= 105 && cpt <= 107)"id="actionbtn"type="button" value="continue" (click)="switchText()"> 
         <div id="actionContext" *ngIf="cpt % 6 == 3 && cpt < 100">
             <div><input class="fightbtn" type="button" [value]="attackOne?.name" (click)="actionAttack(attackOne.id)"></div>
             <div><input class="fightbtn" type="button" [value]="attackTwo?.name" (click)="actionAttack(attackTwo.id)"></div>
@@ -39,10 +39,10 @@
             <div><input class="fightbtn" type="button" [value]="attackFour?.name" (click)="actionAttack(attackFour.id)"></div>
         </div>
         <div>
-            <input *ngIf="cpt == 103" id="actionbtn" type="button" value="continue" (click)="return()">
+            <input *ngIf="cpt == 103 || cpt  == 108" id="actionbtn" type="button" value="continue" (click)="return()">
         </div>
         <div>
-           <input *ngIf="cpt >= 106 && cpt <= 109" id="actionbtn" type="button" value="continue" (click)="switchAtkName()">
+           <input *ngIf="cpt >= 109 && cpt <= 112" id="actionbtn" type="button" value="continue" (click)="switchAtkName()">
         </div>
         <div *ngIf="cpt == 103">
             

@@ -9,7 +9,7 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     background-color: #6C76AC;
-    overflow-x: scroll
+    overflow-y: scroll
     
 }
 
@@ -89,11 +89,14 @@
     100% {left : 0px; top: 0px;}
 }
 
+@media only screen and (max-width: 700px) {
+    #container{width: 560px; height: 320px;}
+}
 @media only screen and (max-width: 550px) {
     #slctcharacter{width: 80px;height: 80px;}
     .btn{display: none;}
     .charact{margin: 1px;height: 1OOpx;}
-    #container{width: 334px; height: 300px; overflow-x: scroll;}
+    #container{width: 334px; height: 320px;}
     .fighter{margin: auto;}
 }
 @media only screen and (width: 320px) {

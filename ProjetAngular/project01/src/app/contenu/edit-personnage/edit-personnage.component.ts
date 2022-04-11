@@ -108,10 +108,10 @@ export class EditPersonnageComponent implements OnInit {
       name : [null], //les validateurs seront set dans le queryNewPkm en fonction de la taille du nom.
       lastname : [null],
       weight : [null],
-      attack1 : [0],
-      attack2 : [1],
-      attack3 : [2],
-      attack4 : [3],
+      attack1 : [null],
+      attack2 : [null],
+      attack3 : [null],
+      attack4 : [null],
     })    
 
     this._route.queryParams.subscribe(params=>{
@@ -174,6 +174,7 @@ export class EditPersonnageComponent implements OnInit {
       backattack : this.fighter.backattack,
       frontattack : this.fighter.frontattack,
       frontknockback : this.fighter.frontknockback,
+      backknockback : this.fighter.backknockback,
       level : this.fighter.level,
       xp : this.fighter.xp,
       attack1 : this._formgroup.value.attack1,

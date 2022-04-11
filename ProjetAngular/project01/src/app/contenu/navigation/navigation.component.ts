@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SoundsService } from 'src/app/services/sounds.service';
 import { Link } from 'src/app/services/link';
 
 
@@ -14,9 +15,12 @@ export class NavigationComponent implements OnInit {
     new Link("select", "contenu/personnage"),
   ];
 
-  constructor() { }
+  constructor(private _soundservice : SoundsService) { }
 
   ngOnInit(): void {
+  }
+  alternSong(){
+    this._soundservice.stopSound()
   }
 
 }
